@@ -1,9 +1,7 @@
 Controller(
-output signal pusherExtend,pusherRetract,vacOn,armSource,armDest;
 input signal pusherRetracted,pusherExtended,ICgripped,armAtSource,armAtDest,empty,request;
+output signal pusherExtend,pusherRetract,vacOn,armSource,armDest;
 		)
 ->{
-
-
 
 }

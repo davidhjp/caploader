@@ -1,0 +1,37 @@
+<System>
+  <Interconnection>
+    <Link Type="Destination">
+      <!--Interface example: -->
+      <!--<Interface SubSystem="SS1" Class="systemj.desktop.TCPIPInterface" Args="127.0.0.1:1100">-->
+      <!--<Interface SubSystem="SS2" Class="systemj.desktop.TCPIPInterface" Args="127.0.0.1:1200">-->
+      <!--.....-->
+    </Link>
+  </Interconnection>
+  <SubSystem Name="SS1" Local="true">
+    <ClockDomain Name="PlantCD" Class="Plant">
+      <oSignal Name="pusherRetracted" Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="10000"/>
+      <oSignal Name="pusherExtended"  Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="10001"/>
+      <oSignal Name="ICgripped"       Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="10002"/>
+      <oSignal Name="armAtSource"     Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="10003"/>
+      <oSignal Name="armAtDest"       Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="10004"/>
+      <oSignal Name="empty"           Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="10005"/>
+
+			<!-- To viz-->
+      <oSignal Name="pusherRetractedE" Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="20000"/>
+      <oSignal Name="pusherExtendedE"  Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="20000"/>
+      <oSignal Name="ICgrippedE"       Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="20000"/>
+      <oSignal Name="armAtSourceE"     Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="20000"/>
+      <oSignal Name="armAtDestE"       Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="20000"/>
+      <oSignal Name="emptyE"           Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="20000"/>
+			<!-- viz end -->
+
+      <iSignal Name="pusherExtend"  Class="systemj.signals.network.TCPReceiver" IP="127.0.0.1" Port="10006" />
+      <iSignal Name="pusherRetract" Class="systemj.signals.network.TCPReceiver" IP="127.0.0.1" Port="10007" />
+      <iSignal Name="vacOn"         Class="systemj.signals.network.TCPReceiver" IP="127.0.0.1" Port="10008" />
+      <iSignal Name="armSource"     Class="systemj.signals.network.TCPReceiver" IP="127.0.0.1" Port="10009" />
+      <iSignal Name="armDest"       Class="systemj.signals.network.TCPReceiver" IP="127.0.0.1" Port="10010" />
+      <iSignal Name="enable"       Class="systemj.signals.network.TCPReceiver" IP="127.0.0.1" Port="10013" />
+      <iSignal Name="refill"       Class="systemj.signals.network.TCPReceiver" IP="127.0.0.1" Port="10014" />
+    </ClockDomain>
+  </SubSystem>
+</System>

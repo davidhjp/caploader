@@ -1,7 +1,75 @@
 Plant(
-
+input signal pusherExtend,pusherRetract,vacOn,armSource,armDest;
+input signal enable,refill;
+output signal pusherRetracted,pusherExtended,ICgripped,armAtSource,armAtDest,empty;
+output signal pusherRetractedE,pusherExtendedE,ICgrippedE,armAtSourceE,armAtDestE,emptyE;
 		)
 ->
 {
-
+	signal capDec;
+	{// Arm
+		while(true){
+			abort(armSource && enable){
+				sustain armAtDest;
+			}
+			await(!enable);
+			abort(armDest && enable){
+				sustain armAtSource;
+			}
+			await(!enable);
+		}
+	}
+	||
+	{// Pusher
+		while(true){
+			abort(pusherExtend && enable){
+				sustain pusherRetracted;
+			}
+			emit capDec;
+			await(!enable);
+			abort(pusherRetract && enable){
+				sustain pusherExtended;
+			}
+			await(!enable);
+		}
+	}
+	||
+	{// Vacuum
+		while(true){
+			present(vacOn){
+				emit ICgripped; 
+			}
+			pause;
+		}
+	}
+	||
+	{
+		int capcount = 5;
+		while(true){
+			present(capDec){
+				if(capcount > 0)
+					capcount--;
+			}
+			present(refill){
+				capcount = 5;
+			}
+			if(capcount == 0)
+				emit empty;
+			pause;
+		}
+	}
+	||
+	{// To viz
+		{while(true){present(pusherRetracted){emit pusherRetractedE("pusherRetracted");} pause;}}
+		||
+		{while(true){present(pusherExtended){emit pusherExtendedE("pusherExtended");} pause;}}
+		||
+		{while(true){present(ICgripped){emit ICgrippedE("ICgripped");} pause;}}
+		||
+		{while(true){present(armAtSource){emit armAtSourceE("armAtSource");} pause;}}
+		||
+		{while(true){present(armAtDest){emit armAtDestE("armAtDest");} pause;}}
+		||
+		{while(true){present(empty){emit emptyE("empty");} pause;}}
+	}
 }
