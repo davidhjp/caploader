@@ -24,8 +24,15 @@ public class SignalServer implements Runnable {
 				break;
 			case "pusherExtended":
 				States.PUSHER_EXTENDED = status;
+				if(!States.MAG_EMPTY)
+					States.CAP_READY = true;
 				break;
 			case "ICgripped":
+				if(States.GRIPPED){
+					if(!status){
+						States.CAP_READY = false;
+					}
+				}
 				States.GRIPPED = status;
 				break;
 			case "armAtSource":

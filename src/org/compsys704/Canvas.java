@@ -32,6 +32,7 @@ public class Canvas extends JPanel {
 			System.exit(1);;
 		}
 	}
+	
 	@Override
 	protected void paintComponent(Graphics g){
 		super.paintComponent(g);
@@ -53,10 +54,20 @@ public class Canvas extends JPanel {
 			g.setColor(Color.black);
 		}
 		
-		if(States.PUSHER_RETRACTED)
+		if(States.PUSHER_RETRACTED){
 			g.drawImage(p1, 90, 225, null);
+			if(!States.MAG_EMPTY){
+				g.setColor(Color.black);
+				g.fillOval(154, 243, 30, 30);
+			}
+		}
 		else{
 			g.drawImage(p2, 90, 225, null);
+		}
+		
+		if(States.CAP_READY){
+			g.setColor(Color.black);
+			g.fillOval(40, 243, 30, 30);
 		}
 		
 		if(States.MAG_EMPTY){

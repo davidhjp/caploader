@@ -53,8 +53,10 @@ output signal pusherRetractedE,pusherExtendedE,ICgrippedE,armAtSourceE,armAtDest
 			present(refill){
 				capcount = 5;
 			}
-			if(capcount == 0)
-				emit empty;
+			present(pusherRetracted){
+				if(capcount == 0)
+					emit empty;
+			}
 			pause;
 		}
 	}
