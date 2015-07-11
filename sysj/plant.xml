@@ -7,7 +7,7 @@
       <!--.....-->
     </Link>
   </Interconnection>
-  <SubSystem Name="SS1" Local="true">
+  <SubSystem Name="SS2" Local="true">
     <ClockDomain Name="PlantCD" Class="Plant">
       <oSignal Name="pusherRetracted" Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="10000"/>
       <oSignal Name="pusherExtended"  Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="10001"/>
