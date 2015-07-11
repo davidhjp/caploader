@@ -1,8 +1,8 @@
 Plant(
-input signal pusherExtend,pusherRetract,vacOn,armSource,armDest;
-input signal enable,refill;
-output signal pusherRetracted,pusherExtended,ICgripped,armAtSource,armAtDest,empty;
-output signal pusherRetractedE,pusherExtendedE,ICgrippedE,armAtSourceE,armAtDestE,emptyE;
+		input signal pusherExtend,pusherRetract,vacOn,armSource,armDest;
+		input signal enable,refill;
+		output signal pusherRetracted,pusherExtended,ICgripped,armAtSource,armAtDest,empty;
+		output signal pusherRetractedE,pusherExtendedE,ICgrippedE,armAtSourceE,armAtDestE,emptyE;
 		)
 ->
 {
@@ -56,14 +56,19 @@ output signal pusherRetractedE,pusherExtendedE,ICgrippedE,armAtSourceE,armAtDest
 		 */
 		while(true){
 			// At mag
-			emit capPos(0);
-			await(pusherExtended);
-			// At pick-up
-			emit capPos(1);
-			await(pusherRetracted);
-			emit capDec;
-			await(vacOn && armAtSource);
-			await(!vacOn && armAtDest);
+			abort(empty){
+				while(true){
+					emit capPos(0);
+					await(pusherExtended);
+					// At pick-up
+					emit capPos(1);
+					await(pusherRetracted);
+					emit capDec;
+					await(vacOn && armAtSource);
+					await(!vacOn && armAtDest);
+				}
+			}
+			await(!empty);
 		}
 	}
 	||
