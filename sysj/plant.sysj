@@ -7,6 +7,8 @@ output signal pusherRetractedE,pusherExtendedE,ICgrippedE,armAtSourceE,armAtDest
 ->
 {
 	signal capDec;
+	int signal capPos;
+	emit capPos(0);
 	{// Arm
 		while(true){
 			abort(armSource && enable){
@@ -25,7 +27,6 @@ output signal pusherRetractedE,pusherExtendedE,ICgrippedE,armAtSourceE,armAtDest
 			abort(pusherExtend && enable){
 				sustain pusherRetracted;
 			}
-			emit capDec;
 			await(!enable);
 			abort(pusherRetract && enable){
 				sustain pusherExtended;
@@ -36,10 +37,33 @@ output signal pusherRetractedE,pusherExtendedE,ICgrippedE,armAtSourceE,armAtDest
 	||
 	{// Vacuum
 		while(true){
-			present(vacOn){
-				emit ICgripped; 
+			present(vacOn && armAtSource){
+				if((Integer)#capPos == 1){
+					abort(!vacOn){
+						sustain ICgripped; 
+					}
+				}
 			}
 			pause;
+		}
+	}
+	||
+	{
+		/*
+		 * Cap positions
+		 * 0 = at Mag
+		 * 1 = at pick-up
+		 */
+		while(true){
+			// At mag
+			emit capPos(0);
+			await(pusherExtended);
+			// At pick-up
+			emit capPos(1);
+			await(pusherRetracted);
+			emit capDec;
+			await(vacOn && armAtSource);
+			await(!vacOn && armAtDest);
 		}
 	}
 	||
