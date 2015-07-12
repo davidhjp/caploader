@@ -11,7 +11,7 @@
     <ClockDomain Name="PlantCD" Class="Plant">
       <oSignal Name="pusherRetracted" To="ControllerCD.pusherRetracted" Class="systemj.signals.network.SimpleClient" IP="127.0.0.1" Port="10000"/>
       <oSignal Name="pusherExtended"  To="ControllerCD.pusherExtended"  Class="systemj.signals.network.SimpleClient" IP="127.0.0.1" Port="10000"/>
-      <oSignal Name="ICgripped"       To="ControllerCD.ICgripped"       Class="systemj.signals.network.SimpleClient" IP="127.0.0.1" Port="10000"/>
+      <oSignal Name="WPgripped"       To="ControllerCD.WPgripped"       Class="systemj.signals.network.SimpleClient" IP="127.0.0.1" Port="10000"/>
       <oSignal Name="armAtSource"     To="ControllerCD.armAtSource"     Class="systemj.signals.network.SimpleClient" IP="127.0.0.1" Port="10000"/>
       <oSignal Name="armAtDest"       To="ControllerCD.armAtDest"       Class="systemj.signals.network.SimpleClient" IP="127.0.0.1" Port="10000"/>
       <oSignal Name="empty"           To="ControllerCD.empty"           Class="systemj.signals.network.SimpleClient" IP="127.0.0.1" Port="10000"/>
@@ -27,7 +27,7 @@
 			<!-- To viz-->
       <oSignal Name="pusherRetractedE" To="UI.pusherRetractedE" Class="systemj.signals.network.SimpleClient" IP="127.0.0.1" Port="20000"/>
       <oSignal Name="pusherExtendedE"  To="UI.pusherExtendedE"  Class="systemj.signals.network.SimpleClient" IP="127.0.0.1" Port="20000"/>
-      <oSignal Name="ICgrippedE"       To="UI.ICgrippedE"       Class="systemj.signals.network.SimpleClient" IP="127.0.0.1" Port="20000"/>
+      <oSignal Name="WPgrippedE"       To="UI.WPgrippedE"       Class="systemj.signals.network.SimpleClient" IP="127.0.0.1" Port="20000"/>
       <oSignal Name="armAtSourceE"     To="UI.armAtSourceE"     Class="systemj.signals.network.SimpleClient" IP="127.0.0.1" Port="20000"/>
       <oSignal Name="armAtDestE"       To="UI.armAtDestE"       Class="systemj.signals.network.SimpleClient" IP="127.0.0.1" Port="20000"/>
       <oSignal Name="emptyE"           To="UI.emptyE"           Class="systemj.signals.network.SimpleClient" IP="127.0.0.1" Port="20000"/>

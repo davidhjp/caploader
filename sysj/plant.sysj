@@ -1,8 +1,8 @@
 Plant(
 		input signal pusherExtend,pusherRetract,vacOn,armSource,armDest;
 		input signal enable,refill;
-		output signal pusherRetracted,pusherExtended,ICgripped,armAtSource,armAtDest,empty;
-		output signal pusherRetractedE,pusherExtendedE,ICgrippedE,armAtSourceE,armAtDestE,emptyE;
+		output signal pusherRetracted,pusherExtended,WPgripped,armAtSource,armAtDest,empty;
+		output signal pusherRetractedE,pusherExtendedE,WPgrippedE,armAtSourceE,armAtDestE,emptyE;
 		)
 ->
 {
@@ -40,7 +40,7 @@ Plant(
 			present(vacOn && armAtSource){
 				if((Integer)#capPos == 1){
 					abort(!vacOn){
-						sustain ICgripped; 
+						sustain WPgripped; 
 					}
 				}
 			}
@@ -95,7 +95,7 @@ Plant(
 		||
 		{while(true){present(pusherExtended){emit pusherExtendedE;} pause;}}
 		||
-		{while(true){present(ICgripped){emit ICgrippedE;} pause;}}
+		{while(true){present(WPgripped){emit WPgrippedE;} pause;}}
 		||
 		{while(true){present(armAtSource){emit armAtSourceE;} pause;}}
 		||

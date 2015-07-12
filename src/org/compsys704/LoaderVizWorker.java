@@ -17,7 +17,7 @@ public class LoaderVizWorker extends Worker{
 			if(!States.MAG_EMPTY)
 				States.CAP_READY = true;
 			break;
-		case "ICgrippedE":
+		case "WPgrippedE":
 			if(States.GRIPPED){
 				if(!status){
 					States.CAP_READY = false;
@@ -41,7 +41,7 @@ public class LoaderVizWorker extends Worker{
 	}
 	
 	
-	static final List<String> signames = Arrays.asList("pusherRetractedE","pusherExtendedE","ICgrippedE","armAtSourceE","armAtDestE","emptyE");
+	static final List<String> signames = Arrays.asList("pusherRetractedE","pusherExtendedE","WPgrippedE","armAtSourceE","armAtDestE","emptyE");
 	
 	@Override
 	public boolean hasSignal(String sn) {

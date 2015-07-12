@@ -11,7 +11,7 @@
     <ClockDomain Name="ControllerCD" Class="Controller">
       <iSignal Name="pusherRetracted" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1" Port="10000"/>
       <iSignal Name="pusherExtended" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"  Port="10000"/>
-      <iSignal Name="ICgripped" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"       Port="10000"/>
+      <iSignal Name="WPgripped" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"       Port="10000"/>
       <iSignal Name="armAtSource" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"     Port="10000"/>
       <iSignal Name="armAtDest" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"       Port="10000"/>
       <iSignal Name="empty" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"           Port="10000"/>
