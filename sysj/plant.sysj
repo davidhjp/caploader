@@ -91,16 +91,16 @@ Plant(
 	}
 	||
 	{// To viz
-		{while(true){present(pusherRetracted){emit pusherRetractedE("pusherRetracted");} pause;}}
+		{while(true){present(pusherRetracted){emit pusherRetractedE;} pause;}}
 		||
-		{while(true){present(pusherExtended){emit pusherExtendedE("pusherExtended");} pause;}}
+		{while(true){present(pusherExtended){emit pusherExtendedE;} pause;}}
 		||
-		{while(true){present(ICgripped){emit ICgrippedE("ICgripped");} pause;}}
+		{while(true){present(ICgripped){emit ICgrippedE;} pause;}}
 		||
-		{while(true){present(armAtSource){emit armAtSourceE("armAtSource");} pause;}}
+		{while(true){present(armAtSource){emit armAtSourceE;} pause;}}
 		||
-		{while(true){present(armAtDest){emit armAtDestE("armAtDest");} pause;}}
+		{while(true){present(armAtDest){emit armAtDestE;} pause;}}
 		||
-		{while(true){present(empty){emit emptyE("empty");} pause;}}
+		{while(true){present(empty){emit emptyE;} pause;}}
 	}
 }
