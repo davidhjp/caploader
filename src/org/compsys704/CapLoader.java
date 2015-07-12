@@ -18,11 +18,11 @@ public class CapLoader extends JFrame {
 		panel.setPreferredSize(new Dimension(360, 350));
 		panel.setBackground(Color.WHITE);
 		JButton enable = new JButton("enable");
-		enable.addActionListener(new SignalClient(Ports.ENABLE));
+		enable.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.ENABLE_SIGNAL));
 		JButton request = new JButton("request");
-		request.addActionListener(new SignalClient(Ports.REQUEST));
+		request.addActionListener(new SignalClient(Ports.PORT_LOADER_CONTROLLER, Ports.REQUEST_SIGNAL));
 		JButton refill = new JButton("refill");
-		refill.addActionListener(new SignalClient(Ports.REFILL));
+		refill.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.REFILL_SIGNAL));
 		JPanel ss = new JPanel();
 		ss.add(enable);
 		ss.add(request);
@@ -47,7 +47,7 @@ public class CapLoader extends JFrame {
 		cl.pack();
 		cl.setVisible(true);
 		
-		SignalServer server = new SignalServer();
+		SignalServer server = new SignalServer(Ports.PORT_LOADER_VIZ, LoaderVizWorker.class);
 		new Thread(server).start();
 		while(true){
 			try {

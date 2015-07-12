@@ -9,19 +9,19 @@
   </Interconnection>
   <SubSystem Name="SS1" Local="true">
     <ClockDomain Name="ControllerCD" Class="Controller">
-      <iSignal Name="pusherRetracted" Class="systemj.signals.network.TCPReceiver" IP="127.0.0.1" Port="10000"/>
-      <iSignal Name="pusherExtended" Class="systemj.signals.network.TCPReceiver" IP="127.0.0.1" Port="10001"/>
-      <iSignal Name="ICgripped" Class="systemj.signals.network.TCPReceiver" IP="127.0.0.1" Port="10002"/>
-      <iSignal Name="armAtSource" Class="systemj.signals.network.TCPReceiver" IP="127.0.0.1" Port="10003"/>
-      <iSignal Name="armAtDest" Class="systemj.signals.network.TCPReceiver" IP="127.0.0.1" Port="10004"/>
-      <iSignal Name="empty" Class="systemj.signals.network.TCPReceiver" IP="127.0.0.1" Port="10005"/>
-      <iSignal Name="request" Class="systemj.signals.network.TCPReceiver" IP="127.0.0.1" Port="10011"/>
+      <iSignal Name="pusherRetracted" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1" Port="10000"/>
+      <iSignal Name="pusherExtended" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"  Port="10000"/>
+      <iSignal Name="ICgripped" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"       Port="10000"/>
+      <iSignal Name="armAtSource" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"     Port="10000"/>
+      <iSignal Name="armAtDest" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"       Port="10000"/>
+      <iSignal Name="empty" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"           Port="10000"/>
+      <iSignal Name="request" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"         Port="10000"/>
 
-      <oSignal Name="pusherExtend" Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="10006" />
-      <oSignal Name="pusherRetract" Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="10007" />
-      <oSignal Name="vacOn" Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="10008" />
-      <oSignal Name="armSource" Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="10009" />
-      <oSignal Name="armDest" Class="systemj.signals.network.TCPSender" IP="127.0.0.1" Port="10010" />
+      <oSignal Name="pusherExtend"  To="PlantCD.pusherExtend"  Class="systemj.signals.network.SimpleClient" IP="127.0.0.1"   Port="10001" />
+      <oSignal Name="pusherRetract" To="PlantCD.pusherRetract" Class="systemj.signals.network.SimpleClient" IP="127.0.0.1"   Port="10001" />
+      <oSignal Name="vacOn"         To="PlantCD.vacOn"         Class="systemj.signals.network.SimpleClient" IP="127.0.0.1"   Port="10001" />
+      <oSignal Name="armSource"     To="PlantCD.armSource"     Class="systemj.signals.network.SimpleClient" IP="127.0.0.1"   Port="10001" />
+      <oSignal Name="armDest"       To="PlantCD.armDest"       Class="systemj.signals.network.SimpleClient" IP="127.0.0.1"   Port="10001" />
     </ClockDomain>
   </SubSystem>
 </System>
