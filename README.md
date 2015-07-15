@@ -1,7 +1,10 @@
-# Cap loader simulator for COMPSYS 704
+# The Cap Loader simulator for COMPSYS 704
 
-To the program type `make`.
+Content of this repository:
+* `sys` contains both a SystemJ model and a configuration file of the Cap Loader (`plant.sysj` and `plant.xml`). A template file of the controller and its configuration file are also in this directory (`controller.sysj` and `controller.xml`).
+* `src` contains source code of an UI (visualization) written in Java
+* `res` contains all the images used in the UI
 
-To run the program type `make run`.
+To build and run the program type `make` followed by `make run`.
 
-Simulate the cap Loader using a controller developed in SystemJ! A configuration file is already given in the `sysj` directory.
+Complete `sysj/controller.sysj` and validate functional correctness of your SystemJ controller!
