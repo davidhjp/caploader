@@ -47,7 +47,7 @@ public class CapLoader extends JFrame {
 		cl.pack();
 		cl.setVisible(true);
 		
-		SignalServer server = new SignalServer(Ports.PORT_LOADER_VIZ, LoaderVizWorker.class);
+		SignalServer<LoaderVizWorker> server = new SignalServer<LoaderVizWorker>(Ports.PORT_LOADER_VIZ, LoaderVizWorker.class);
 		new Thread(server).start();
 		while(true){
 			try {
