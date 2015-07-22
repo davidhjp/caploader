@@ -13,12 +13,12 @@ public class LoaderVizWorker extends Worker{
 			States.PUSHER_RETRACTED = status;
 			break;
 		case "pusherExtendedE":
-			States.PUSHER_EXTENDED = status;
-			if(!States.MAG_EMPTY)
+			if(!States.MAG_EMPTY && !States.PUSHER_EXTENDED)
 				States.CAP_READY = true;
+			States.PUSHER_EXTENDED = status;
 			break;
 		case "WPgrippedE":
-			if(States.GRIPPED){
+			if(States.GRIPPED && States.ARM_AT_DEST){
 				if(!status){
 					States.CAP_READY = false;
 				}

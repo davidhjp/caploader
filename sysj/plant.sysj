@@ -6,7 +6,7 @@ Plant(
 		)
 ->
 {
-	signal capDec;
+	signal capDec,reset;
 	int signal capPos;
 	emit capPos(0);
 	{// Arm
@@ -42,6 +42,10 @@ Plant(
 					abort(!vacOn){
 						sustain WPgripped; 
 					}
+					present(armAtDest){
+						emit capPos(0);
+						emit reset;
+					}
 				}
 			}
 			pause;
@@ -58,17 +62,20 @@ Plant(
 			// At mag
 			abort(empty){
 				while(true){
-					emit capPos(0);
-					await(pusherExtended);
-					// At pick-up
-					emit capPos(1);
-					await(pusherRetracted);
-					emit capDec;
-					await(vacOn && armAtSource);
-					await(!vacOn && armAtDest);
+					abort(reset){
+						await(pusherRetracted);
+						emit capPos(0);
+						await(pusherExtended);
+						// At pick-up
+						emit capPos(1);
+						await(pusherRetracted);
+						emit capDec;
+						await(vacOn && armAtSource);
+						await(reset);
+					}
 				}
 			}
-			await(!empty);
+			await(refill);
 		}
 	}
 	||
@@ -82,10 +89,10 @@ Plant(
 			present(refill){
 				capcount = 5;
 			}
-			present(pusherRetracted){
+//      present(pusherRetracted){
 				if(capcount == 0)
 					emit empty;
-			}
+//      }
 			pause;
 		}
 	}
