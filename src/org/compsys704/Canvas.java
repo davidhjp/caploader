@@ -59,12 +59,12 @@ public class Canvas extends JPanel {
 			}
 			g.setColor(Color.black);
 		}
-		else{
+//		else{
 			if(States.CAP_READY){ // A cap is pushed to the source pos
 				g.setColor(Color.black);
 				g.fillOval(40, 243, 30, 30);
 			}
-		}
+//		}
 		
 		if(States.PUSHER_RETRACTED){
 			g.drawImage(p1, 90, 225, null);
