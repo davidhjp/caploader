@@ -1,10 +1,11 @@
 ifeq ($(OS),Windows_NT)
 	S=\;
 	TERMINAL=cygstart mintty -s 50,15
-	BROWSER=explorer
+	ASYN=;
 else
 	S=:
-	TERMINAL=
+	TERMINAL=xterm -e
+	ASYN=&
 endif
 
 all:
@@ -17,8 +18,8 @@ all:
 
 
 run:
-	(cd sysj; $(TERMINAL) sysj controller.xml ; $(TERMINAL) sysj plant.xml)
-	$(TERMINAL) java -cp bin org.compsys704.CapLoader
+	(cd sysj; $(TERMINAL) sysj controller.xml $(ASYN) $(TERMINAL) sysj plant.xml $(ASYN))
+	$(TERMINAL) java -cp bin org.compsys704.CapLoader $(ASYN)
 
 lab:
 	git checkout -- .
