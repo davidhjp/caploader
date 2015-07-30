@@ -1,10 +1,10 @@
 Controller(
 		input signal pusherRetracted,pusherExtended,WPgripped,armAtSource,armAtDest,empty,request;
-		output signal pusherExtend,pusherRetract,vacOn,armSource,armDest;
+		output signal pusherExtend,vacOff,vacOn,armSource,armDest;
 		// Manual mode
-		input signal pusherExtendM,pusherRetractM,vacOnM,armSourceM,armDestM;
+		input signal pusherExtendM,vacOffM,vacOnM,armSourceM,armDestM;
 		input Integer signal mode;
 		)
 ->{
-	/* control logic */
+/* TODO: Write control-logic */
 }

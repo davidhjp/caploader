@@ -17,10 +17,12 @@
       <oSignal Name="empty"           To="ControllerCD.empty"           Class="systemj.signals.network.SimpleClient" IP="127.0.0.1" Port="10000"/>
 
       <iSignal Name="pusherExtend"  Class="systemj.signals.network.SimpleServer" IP="127.0.0.1" Port="10001" />
-      <iSignal Name="pusherRetract" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1" Port="10001" />
+      <iSignal Name="vacOff"        Class="systemj.signals.network.SimpleServer" IP="127.0.0.1" Port="10001" />
       <iSignal Name="vacOn"         Class="systemj.signals.network.SimpleServer" IP="127.0.0.1" Port="10001" />
       <iSignal Name="armSource"     Class="systemj.signals.network.SimpleServer" IP="127.0.0.1" Port="10001" />
       <iSignal Name="armDest"       Class="systemj.signals.network.SimpleServer" IP="127.0.0.1" Port="10001" />
+
+			<!-- From viz -->
       <iSignal Name="enable"        Class="systemj.signals.network.SimpleServer" IP="127.0.0.1" Port="10001" />
       <iSignal Name="refill"        Class="systemj.signals.network.SimpleServer" IP="127.0.0.1" Port="10001" />
 
