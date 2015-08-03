@@ -10,7 +10,7 @@ public class Ports {
 	
 	// Manual 
 	public static final String SIGNAL_PUSHER_EXTEND   = "ControllerCD.pusherExtendM";
-	public static final String SIGNAL_VACOFF          = "ControllerCD.vacOffM";
+//	public static final String SIGNAL_VACOFF          = "ControllerCD.vacOffM";
 	public static final String SIGNAL_VACON           = "ControllerCD.vacOnM";
 	public static final String SIGNAL_ARM_SOURCE      = "ControllerCD.armSourceM";
 	public static final String SIGNAL_ARM_DEST        = "ControllerCD.armDestM";

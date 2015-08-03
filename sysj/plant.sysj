@@ -1,5 +1,5 @@
 Plant(
-		input signal pusherExtend,vacOff,vacOn,armSource,armDest;
+		input signal pusherExtend,vacOn,armSource,armDest;
 		input signal enable,refill;
 		output signal pusherRetracted,pusherExtended,WPgripped,armAtSource,armAtDest,empty;
 		output signal pusherRetractedE,pusherExtendedE,WPgrippedE,armAtSourceE,armAtDestE,emptyE;
@@ -40,7 +40,7 @@ Plant(
 			present(vacOn && armAtSource){
 				if((Integer)#capPos == 1){
 					emit capPos(0);
-					abort(vacOff || !vacOn){
+					abort(!vacOn){
 						sustain WPgripped; 
 					}
 					present(armAtSource){
