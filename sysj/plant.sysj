@@ -40,7 +40,7 @@ Plant(
 			present(vacOn && armAtSource){
 				if((Integer)#capPos == 1){
 					emit capPos(0);
-					abort(vacOff){
+					abort(vacOff || !vacOn){
 						sustain WPgripped; 
 					}
 					present(armAtSource){
