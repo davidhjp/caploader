@@ -81,7 +81,7 @@ public class CapLoader extends JFrame {
 		ad.setEnabled(false);
 		ad.addItemListener(new SignalCheckBoxClient(Ports.PORT_LOADER_CONTROLLER, Ports.SIGNAL_ARM_DEST));
 
-		JPanel pan2 = new JPanel(new GridLayout(3, 4));
+		JPanel pan2 = new JPanel(new GridLayout(2, 2));
 		pan2.add(pe);
 //		pan2.add(pr);
 		pan2.add(vo);
@@ -100,6 +100,7 @@ public class CapLoader extends JFrame {
 		this.setTitle("Cap Loader");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
+		this.setResizable(false);
 	}
 
 	public static void main(String[] args) {
