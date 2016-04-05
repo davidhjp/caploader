@@ -12,13 +12,13 @@ all:
 	(cd sysj; sysjc --silence controller.sysj ; \
 		if [ -f plant.sysj ]; then\
 		sysjc --silence plant.sysj;\
-		fi; javacc *.java)
+		fi;)
 	-mkdir bin
 	javac -d bin src/org/compsys704/*.java
 
 
 run:
-	(cd sysj; $(TERMINAL) sysj controller.xml $(ASYN) $(TERMINAL) sysj plant.xml $(ASYN))
+	(cd sysj; $(TERMINAL) sysjr controller.xml $(ASYN) $(TERMINAL) sysjr plant.xml $(ASYN))
 	$(TERMINAL) java -cp bin org.compsys704.CapLoader $(ASYN)
 
 lab:

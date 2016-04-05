@@ -1,34 +1,26 @@
-<System>
-  <Interconnection>
-    <Link Type="Destination">
-      <!--Interface example: -->
-      <!--<Interface SubSystem="SS1" Class="systemj.desktop.TCPIPInterface" Args="127.0.0.1:1100">-->
-      <!--<Interface SubSystem="SS2" Class="systemj.desktop.TCPIPInterface" Args="127.0.0.1:1200">-->
-      <!--.....-->
-    </Link>
-  </Interconnection>
+<System xmlns="http://systemjtechnology.com">
   <SubSystem Name="SS1" Local="true">
     <ClockDomain Name="ControllerCD" Class="Controller">
-      <iSignal Name="pusherRetracted" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1" Port="10000"/>
-      <iSignal Name="pusherExtended" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"  Port="10000"/>
-      <iSignal Name="WPgripped" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"       Port="10000"/>
-      <iSignal Name="armAtSource" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"     Port="10000"/>
-      <iSignal Name="armAtDest" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"       Port="10000"/>
-      <iSignal Name="empty" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"           Port="10000"/>
-      <iSignal Name="request" Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"         Port="10000"/>
+      <iSignal Name="pusherRetracted" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000"/>
+      <iSignal Name="pusherExtended" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1"  Port="10000"/>
+      <iSignal Name="WPgripped" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1"       Port="10000"/>
+      <iSignal Name="armAtSource" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1"     Port="10000"/>
+      <iSignal Name="armAtDest" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1"       Port="10000"/>
+      <iSignal Name="empty" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1"           Port="10000"/>
+      <iSignal Name="request" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1"         Port="10000"/>
 
-      <oSignal Name="pusherExtend"  To="PlantCD.pusherExtend"  Class="systemj.signals.network.SimpleClient" IP="127.0.0.1"   Port="10001" />
-      <oSignal Name="vacOn"         To="PlantCD.vacOn"         Class="systemj.signals.network.SimpleClient" IP="127.0.0.1"   Port="10001" />
-      <oSignal Name="armSource"     To="PlantCD.armSource"     Class="systemj.signals.network.SimpleClient" IP="127.0.0.1"   Port="10001" />
-      <oSignal Name="armDest"       To="PlantCD.armDest"       Class="systemj.signals.network.SimpleClient" IP="127.0.0.1"   Port="10001" />
+      <oSignal Name="pusherExtend"  To="PlantCD.pusherExtend"  Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1"   Port="10001" />
+      <oSignal Name="vacOn"         To="PlantCD.vacOn"         Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1"   Port="10001" />
+      <oSignal Name="armSource"     To="PlantCD.armSource"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1"   Port="10001" />
+      <oSignal Name="armDest"       To="PlantCD.armDest"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1"   Port="10001" />
 
 			<!--Mode-->
-      <iSignal Name="mode"           Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"   Port="10000" />
+      <iSignal Name="mode"           Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1"   Port="10000" />
 			<!--Manual control-->
-      <iSignal Name="pusherExtendM"  Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"   Port="10000" />
-      <iSignal Name="vacOnM"         Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"   Port="10000" />
-      <iSignal Name="armSourceM"     Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"   Port="10000" />
-      <iSignal Name="armDestM"       Class="systemj.signals.network.SimpleServer" IP="127.0.0.1"   Port="10000" />
+      <iSignal Name="pusherExtendM"  Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1"   Port="10000" />
+      <iSignal Name="vacOnM"         Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1"   Port="10000" />
+      <iSignal Name="armSourceM"     Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1"   Port="10000" />
+      <iSignal Name="armDestM"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1"   Port="10000" />
     </ClockDomain>
   </SubSystem>
 </System>
